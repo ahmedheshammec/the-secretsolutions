@@ -65,8 +65,17 @@
             gap: 16px;
         }
 
+        .logo {
+            font-weight: 700;
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
         .nav-logo {
-            height: 40px;
+            height: 70px;
             width: auto;
             object-fit: contain;
         }
@@ -97,10 +106,31 @@
             text-align: center;
             padding: 2rem 5%;
             margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.15;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero-section-logo{
+            height: 350px;
         }
 
         .hero-content {
             max-width: 900px;
+            position: relative;
+            z-index: 1;
         }
 
         .hero h1 {
@@ -386,8 +416,10 @@
 
     <header>
         <nav>
-            <div class="logo">The Secret Solutions</div>
-            <img src="https://raw.githubusercontent.com/ahmedheshammec/the-secretsolutions/refs/heads/main/Assets/logo.png" alt="Logo" class="nav-logo">
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/ahmedheshammec/the-secretsolutions/refs/heads/main/Assets/logo%20white.png" alt="Logo" class="nav-logo">
+                The Secret Solutions
+            </div>
             <ul class="nav-links">
                 <li><a href="#services">خدماتنا</a></li>
                 <li><a href="#why-odoo">لماذا Odoo</a></li>
@@ -399,7 +431,11 @@
     </header>
 
     <section class="hero">
+        <video class="hero-video" autoplay muted loop playsinline preload="none" loading="lazy">
+            <source src="Assets/hero-bg.webm" type="video/webm">
+        </video>
         <div class="hero-content">
+            <img src="https://raw.githubusercontent.com/ahmedheshammec/the-secretsolutions/refs/heads/main/Assets/Logo-Circle.png" class="hero-section-logo"/>
             <h1>The Secret Solutions</h1>
             <div class="subtitle">أعمالك، مدعومة بقوة Odoo</div>
             <p>نُمكّن الشركات من خلال الاستفادة من نظام Odoo لتبسيط العمليات وتحسين الكفاءة وتحقيق نمو قابل للتوسع.</p>
