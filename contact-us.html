@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تواصل معنا - The Secret Solutions</title>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+    <style>
+        #wrapwrap .container,
+        #wrapwrap .o_container_small,
+        #wrapwrap .oe_structure,
+        #wrapwrap .o_container {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, 'Helvetica Neue', Arial, sans-serif;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1d3a 50%, #0f1229 100%);
+        }
+
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1d3a 50%, #0f1229 100%);
+        }
+
+        .floating-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 50%, rgba(43, 173, 225, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(41, 45, 114, 0.1) 0%, transparent 50%);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 14, 39, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(43, 173, 225, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 16px;
+        }
+
+        .logo {
+            font-weight: 700;
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2bade1;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 5%;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(43, 173, 225, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-icon {
+            width: 190px;
+            height: 190px;
+            margin: 0 auto 0.75rem;
+        }
+
+        .hero-icon .lazy-video {
+            display: block;
+            margin: 0 auto;
+            filter: brightness(0) saturate(100%) invert(1);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.8rem;
+            color: #2bade1;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.8;
+        }
+
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #2bade1;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 3rem 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(43, 173, 225, 0.1), rgba(41, 45, 114, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #2bade1;
+            box-shadow: 0 25px 50px rgba(43, 173, 225, 0.2);
+        }
+
+        .contact-card:hover::before {
+            opacity: 1;
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #2bade1, #292d72);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .contact-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .contact-card p {
+            color: rgba(255, 255, 255, 0.75);
+            font-size: 1.05rem;
+            line-height: 1.8;
+            position: relative;
+            word-break: break-word;
+        }
+
+        .contact-card a {
+            color: #2bade1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: white;
+        }
+
+        .social-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 30px;
+            padding: 4rem;
+            margin-bottom: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s;
+        }
+
+        .social-section:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(43, 173, 225, 0.3);
+        }
+
+        .social-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .social-section .subtitle {
+            text-align: center;
+            color: #2bade1;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(43, 173, 225, 0.15), transparent);
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .social-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: #2bade1;
+            box-shadow: 0 20px 40px rgba(43, 173, 225, 0.15);
+        }
+
+        .social-card:hover::before {
+            opacity: 1;
+        }
+
+        .social-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2bade1, #292d72);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+        }
+
+        .social-card h4 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            position: relative;
+        }
+
+        .social-card p {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .social-card a {
+            color: inherit;
+            text-decoration: none;
+            display: block;
+        }
+
+        .cta-section {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(43, 173, 225, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .cta-section .subtitle {
+            font-size: 1.4rem;
+            color: #2bade1;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, #2bade1, #292d72);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(43, 173, 225, 0.3);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(43, 173, 225, 0.4);
+        }
+
+        .cta-btn.secondary {
+            background: transparent;
+            border: 2px solid #2bade1;
+        }
+
+        .cta-btn.secondary:hover {
+            background: rgba(43, 173, 225, 0.1);
+        }
+
+        .form-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .form-section .subtitle {
+            text-align: center;
+            color: #2bade1;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto 2rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 1rem;
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #2bade1;
+            box-shadow: 0 0 20px rgba(43, 173, 225, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .form-submit .cta-btn {
+            min-width: 200px;
+        }
+
+        .form-message {
+            text-align: center;
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 12px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .form-message.success {
+            background: rgba(34, 197, 94, 0.15);
+            color: #86efac;
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            display: block;
+        }
+
+        .form-message.error {
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            display: block;
+        }
+
+        footer {
+            padding: 2rem 5%;
+            background: rgba(10, 14, 39, 0.95);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(43, 173, 225, 0.1);
+        }
+
+        @media (max-width: 992px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .social-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(10, 14, 39, 0.97);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                z-index: 1000;
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+
+            header {
+                padding: 1rem 5%;
+            }
+
+            .nav-logo {
+                height: 50px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 2rem 5%;
+                margin-top: 60px;
+            }
+
+            .hero-icon {
+                width: 180px;
+                height: 180px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.3rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .social-section {
+                padding: 2.5rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .social-section h2 {
+                font-size: 2rem;
+            }
+
+            .social-section .subtitle {
+                font-size: 1rem;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .cta-section {
+                padding: 2.5rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+
+            .cta-section .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .form-section {
+                padding: 2rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .form-section h2 {
+                font-size: 2rem;
+            }
+
+            .form-section .subtitle {
+                font-size: 1rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                padding: 0.9rem;
+            }
+
+            .form-submit .cta-btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-icon {
+                width: 150px;
+                height: 150px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .contact-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-icon {
+                width: 60px;
+                height: 60px;
+            }
+
+            .contact-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .social-card {
+                padding: 2rem 1rem;
+            }
+
+            .social-icon {
+                width: 55px;
+                height: 55px;
+            }
+
+            .social-card h4 {
+                font-size: 1.1rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.6rem;
+            }
+
+            .cta-section .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-bg"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/ahmedheshammec/the-secretsolutions/refs/heads/main/Assets/logo%20white.png" alt="Logo" class="nav-logo">
+                The Secret Solutions
+            </div>
+            <ul class="nav-links">
+                <li><a href="#contact-form">النموذج</a></li>
+                <li><a href="#contact-info">معلومات التواصل</a></li>
+                <li><a href="#social">وسائل التواصل</a></li>
+            </ul>
+            <div class="hamburger" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('mobile-open');">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-icon">
+                <dotlottie-wc class="lazy-video" preload="none" src="https://lottie.host/081ef532-262e-44d9-b0fa-415b3f9477ce/K64l6CQup8.lottie" style="width: 240px; height: 240px;" autoplay></dotlottie-wc>
+            </div>
+            <h1>تواصل معنا</h1>
+            <div class="subtitle">نحن هنا لمساعدتك</div>
+            <p>هل لديك سؤال أو تحتاج إلى استشارة؟ فريقنا جاهز للإجابة على استفساراتك ومساعدتك في تحقيق أهدافك مع Odoo.</p>
+        </div>
+    </section>
+
+    <section id="contact-form">
+        <div class="form-section">
+            <h2>أرسل لنا رسالتك</h2>
+            <p class="subtitle">ملء النموذج أدناه وسيتواصل معك فريقنا قريباً</p>
+
+            <form id="opportunityForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="name">اسمك *</label>
+                        <input type="text" id="name" name="name" required placeholder="أدخل اسمك الكامل">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">بريدك الإلكتروني *</label>
+                        <input type="email" id="email" name="email" required placeholder="أدخل بريدك الإلكتروني">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف *</label>
+                        <input type="tel" id="phone" name="phone" required placeholder="أدخل رقم هاتفك">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">اسم الشركة *</label>
+                        <input type="text" id="company" name="company" required placeholder="أدخل اسم شركتك">
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="subject">الموضوع *</label>
+                        <input type="text" id="subject" name="subject" required placeholder="ما هو موضوع استفسارك؟">
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="message">أخبرنا عن احتياجاتك *</label>
+                        <textarea id="message" name="message" required placeholder="اشرح لنا تفاصيل ما تحتاجه..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-submit">
+                    <button type="submit" class="cta-btn">إرسال الرسالة</button>
+                    <div id="formMessage" class="form-message"></div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="contact-info">
+        <h2 class="section-title">معلومات التواصل</h2>
+        <p class="section-subtitle">تواصل معنا عبر القنوات المفضلة لديك</p>
+
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <img src="Assets/phone.png" alt="هاتف" style="width: 40px; height: 40px; filter: brightness(0) invert(1);">
+                </div>
+                <h3>الهاتف</h3>
+                <p><a href="tel:+201004552247" dir="ltr">+20 100 455 2247</a></p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <img src="Assets/mail.png" alt="بريد إلكتروني" style="width: 40px; height: 40px; filter: brightness(0) invert(1);">
+                </div>
+                <h3>البريد الإلكتروني</h3>
+                <p><a href="mailto:info@thesecret-solutions.com">info@thesecret-solutions.com</a></p>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">
+                    <img src="Assets/website.png" alt="موقع" style="width: 40px; height: 40px; filter: brightness(0) invert(1);">
+                </div>
+                <h3>الموقع الإلكتروني</h3>
+                <p><a href="https://thesecret-solutions.com" target="_blank">thesecret-solutions.com</a></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="social">
+        <div class="social-section">
+            <h2>تابعنا على وسائل التواصل</h2>
+            <p class="subtitle">كن على اطلاع بآخر أخبارنا ومشاريعنا</p>
+
+            <div class="social-grid">
+                <div class="social-card">
+                    <a href="https://www.instagram.com/thesecret.solutions/" target="_blank" rel="noopener">
+                        <div class="social-icon">
+                            <img src="Assets/instagram.png" alt="Instagram" style="width: 35px; height: 35px; filter: brightness(0) invert(1);">
+                        </div>
+                        <h4>Instagram</h4>
+                        <p style="direction: ltr;">@thesecret.solutions</p>
+                    </a>
+                </div>
+
+                <div class="social-card">
+                    <a href="https://www.linkedin.com/in/the-secret-solutions-86488b389/" target="_blank" rel="noopener">
+                        <div class="social-icon">
+                            <img src="Assets/linkedin.png" alt="LinkedIn" style="width: 35px; height: 35px; filter: brightness(0) invert(1);">
+                        </div>
+                        <h4>LinkedIn</h4>
+                        <p>The Secret Solutions</p>
+                    </a>
+                </div>
+
+                <div class="social-card">
+                    <a href="https://www.facebook.com/profile.php?id=61581896469357" target="_blank" rel="noopener">
+                        <div class="social-icon">
+                            <img src="Assets/facebook.png" alt="Facebook" style="width: 35px; height: 35px; filter: brightness(0) invert(1);">
+                        </div>
+                        <h4>Facebook</h4>
+                        <p>The Secret Solutions</p>
+                    </a>
+                </div>
+
+                <div class="social-card">
+                    <a href="https://x.com/the_secretco" target="_blank" rel="noopener">
+                        <div class="social-icon">
+                            <img src="Assets/x.png" alt="X" style="width: 35px; height: 35px; filter: brightness(0) invert(1);">
+                        </div>
+                        <h4>X (Twitter)</h4>
+                        <p style="direction: ltr;">@the_secretco</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="get-started">
+        <div class="cta-section">
+            <h2>مستعد للبدء؟</h2>
+            <p class="subtitle">دعنا نساعدك في تحويل أعمالك مع قوة Odoo</p>
+            <div class="cta-buttons">
+                <a href="mailto:info@thesecret-solutions.com?subject=استفسار عن خدمات Odoo" class="cta-btn">راسلنا عبر البريد</a>
+                <a href="tel:+201004552247" class="cta-btn secondary">اتصل بنا الآن</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p style="direction: ltr; unicode-bidi: embed;">&copy;The Secret Solutions. 2026 جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('opportunityForm');
+        const formMessage = document.getElementById('formMessage');
+        const heroLottie = document.querySelector('.hero-icon .lazy-video');
+
+        if (heroLottie) {
+            const freezeAtLastFrame = () => {
+                if (typeof heroLottie.seek === 'function') {
+                    heroLottie.seek('100%');
+                } else if (typeof heroLottie.setFrame === 'function' && Number.isFinite(heroLottie.totalFrames)) {
+                    heroLottie.setFrame(Math.max(0, heroLottie.totalFrames - 1));
+                }
+                if (typeof heroLottie.pause === 'function') {
+                    heroLottie.pause();
+                }
+            };
+
+            heroLottie.removeAttribute('loop');
+            heroLottie.addEventListener('complete', freezeAtLastFrame);
+        }
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const company = document.getElementById('company').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'جاري الإرسال...';
+
+            try {
+                const supabaseUrl = 'https://ynnoechazuksimpsyhwy.supabase.co';
+                const response = await fetch(`${supabaseUrl}/functions/v1/submit_opportunity`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name,
+                        email,
+                        phone,
+                        company,
+                        subject,
+                        message,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (data.success) {
+                    formMessage.textContent = data.message;
+                    formMessage.classList.add('success');
+                    formMessage.classList.remove('error');
+                    form.reset();
+                    setTimeout(() => {
+                        formMessage.classList.remove('success');
+                    }, 5000);
+                } else {
+                    formMessage.textContent = data.error || 'حدث خطأ في الإرسال';
+                    formMessage.classList.add('error');
+                    formMessage.classList.remove('success');
+                }
+            } catch (error) {
+                formMessage.textContent = 'حدث خطأ في الاتصال. يرجى المحاولة لاحقاً.';
+                formMessage.classList.add('error');
+                formMessage.classList.remove('success');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+                document.querySelector('.nav-links').classList.remove('mobile-open');
+                document.querySelector('.hamburger').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

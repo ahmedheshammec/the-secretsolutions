@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>خدماتنا - The Secret Solutions</title>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
+    <style>
+        /* Override Odoo container constraints - scoped to #wrapwrap so it only triggers inside Odoo */
+        #wrapwrap .container,
+        #wrapwrap .o_container_small,
+        #wrapwrap .oe_structure,
+        #wrapwrap .o_container {
+            max-width: 100% !important;
+            width: 100% !important;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, 'Helvetica Neue', Arial, sans-serif;
+            color: #1a1a1a;
+            overflow-x: hidden;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1d3a 50%, #0f1229 100%);
+        }
+
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1d3a 50%, #0f1229 100%);
+        }
+
+        .floating-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 80% 50%, rgba(43, 173, 225, 0.08) 0%, transparent 50%),
+                        radial-gradient(circle at 20% 80%, rgba(41, 45, 114, 0.1) 0%, transparent 50%);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            background: rgba(10, 14, 39, 0.85);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(43, 173, 225, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 16px;
+        }
+
+        .logo {
+            font-weight: 700;
+            color: white;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-logo {
+            height: 70px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #2bade1;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem 5%;
+            margin-top: 70px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(43, 173, 225, 0.1) 0%, transparent 70%);
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .hero .subtitle {
+            font-size: 1.8rem;
+            color: #2bade1;
+            margin-bottom: 3rem;
+            font-weight: 300;
+        }
+
+        .hero-services {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .hero-service-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero-service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(43, 173, 225, 0.1), rgba(41, 45, 114, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+
+        .hero-service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #2bade1;
+            box-shadow: 0 25px 50px rgba(43, 173, 225, 0.2);
+        }
+
+        .hero-service-card:hover::before {
+            opacity: 1;
+        }
+
+        .hero-card-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-service-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .hero-service-card p {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.8;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        section {
+            padding: 6rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            color: white;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #2bade1;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .service-section {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 30px;
+            padding: 4rem;
+            margin-bottom: 4rem;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s;
+        }
+
+        .service-section:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(43, 173, 225, 0.3);
+        }
+
+        .service-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #2bade1, #292d72);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .service-header-text h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .service-header-text p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+        }
+
+        .service-content {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+        }
+
+        .service-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 15px;
+            transition: all 0.3s;
+        }
+
+        .feature:hover {
+            background: rgba(255, 255, 255, 0.06);
+            transform: translateX(-5px);
+        }
+
+        .checkmark {
+            width: 28px;
+            height: 28px;
+            background: #2bade1;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .feature span {
+            color: white;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .training-types {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .training-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 3rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .training-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 150px;
+            height: 150px;
+            background: radial-gradient(circle, rgba(43, 173, 225, 0.15), transparent);
+            border-radius: 50%;
+            transform: translate(50%, -50%);
+        }
+
+        .training-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.07);
+            border-color: #2bade1;
+            box-shadow: 0 20px 40px rgba(43, 173, 225, 0.15);
+        }
+
+        .training-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #2bade1, #292d72);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .training-card h4 {
+            color: white;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .training-card p {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            position: relative;
+        }
+
+        .training-card ul {
+            list-style: none;
+            margin-top: 1.5rem;
+            position: relative;
+        }
+
+        .training-card li {
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0.8rem 0;
+            padding-right: 2rem;
+            position: relative;
+        }
+
+        .training-card li::before {
+            content: '◆';
+            position: absolute;
+            right: 0;
+            color: #2bade1;
+            font-size: 0.8rem;
+        }
+
+        .contact-box {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            padding: 4rem;
+            text-align: center;
+            max-width: 800px;
+            margin: 3rem auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(43, 173, 225, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .contact-box h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .contact-box .subtitle {
+            font-size: 1.4rem;
+            color: #2bade1;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 1rem 3rem;
+            background: linear-gradient(135deg, #2bade1, #292d72);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(43, 173, 225, 0.3);
+            position: relative;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(43, 173, 225, 0.4);
+        }
+
+        .industry-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 30px;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .industry-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(43, 173, 225, 0.05), rgba(41, 45, 114, 0.05));
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+
+        .industry-section:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(43, 173, 225, 0.4);
+            box-shadow: 0 20px 50px rgba(43, 173, 225, 0.1);
+        }
+
+        .industry-section:hover::before {
+            opacity: 1;
+        }
+
+        .industry-header {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .industry-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #2bade1, #292d72);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 15px 40px rgba(43, 173, 225, 0.2);
+        }
+
+        .industry-header-text h3 {
+            color: white;
+            font-size: 2.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .industry-header-text p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .industry-content {
+            position: relative;
+        }
+
+        .industry-content > p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            margin-bottom: 2.5rem;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .solution-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        .solution-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: #2bade1;
+            transform: translateY(-5px);
+        }
+
+        .solution-item h5 {
+            color: #2bade1;
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .solution-item p {
+            color: rgba(255, 255, 255, 0.75);
+            line-height: 1.7;
+        }
+
+        .benefits-list {
+            background: rgba(255, 255, 255, 0.02);
+            border-left: 3px solid #2bade1;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .benefits-list h5 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-list ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .benefits-list li {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .benefits-list li::before {
+            content: '→';
+            color: #2bade1;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .construction-section {
+            overflow: visible;
+        }
+
+        .construction-section::before {
+            border-radius: inherit;
+        }
+
+        .construction-video {
+            position: absolute;
+            left: -15rem;
+            top: 0%;
+            transform: translateY(-53%);
+            width: 700px;
+            height: auto;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .manufacturing-section {
+            overflow: visible;
+        }
+
+        .manufacturing-section::before {
+            border-radius: inherit;
+        }
+
+        .manufacturing-video {
+            position: absolute;
+            left: -4rem;
+            top: 0%;
+            transform: translateY(-50%);
+            width: 330px;
+            height: auto;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .retail-section {
+            overflow: visible;
+        }
+
+        .retail-section::before {
+            border-radius: inherit;
+        }
+
+        .retail-video {
+            position: absolute;
+            left: -6rem;
+            top: 0%;
+            transform: translateY(-60%);
+            width: 650px;
+            height: auto;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        footer {
+            padding: 2rem 5%;
+            background: rgba(10, 14, 39, 0.95);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            border-top: 1px solid rgba(43, 173, 225, 0.1);
+        }
+
+        @media (max-width: 1400px) {
+            .construction-video,
+            .manufacturing-video,
+            .retail-video {
+                display: none;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .hero-services {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .training-types {
+                grid-template-columns: 1fr;
+            }
+
+            .service-section {
+                padding: 2.5rem;
+            }
+
+            .industry-section {
+                padding: 2.5rem;
+            }
+
+            .industry-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .industry-icon {
+                margin: 0 auto;
+            }
+
+            .solutions-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .benefits-list ul {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-service-card dotlottie-wc {
+                width: 70px !important;
+                height: 70px !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(10, 14, 39, 0.97);
+                backdrop-filter: blur(15px);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                z-index: 1000;
+            }
+
+            .nav-links.mobile-open {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.3rem;
+            }
+
+            header {
+                padding: 1rem 5%;
+            }
+
+            .nav-logo {
+                height: 50px;
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 2rem 5%;
+                margin-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.3rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-services {
+                margin-top: 2rem;
+            }
+
+            .hero-service-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-service-card h3 {
+                font-size: 1.3rem;
+            }
+
+            .hero-service-card p {
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 3rem 5%;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-subtitle {
+                font-size: 1rem;
+                margin-bottom: 2.5rem;
+            }
+
+            .service-section {
+                padding: 2rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .service-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .service-icon {
+                width: 70px;
+                height: 70px;
+                border-radius: 15px;
+            }
+
+            .service-header-text h3 {
+                font-size: 1.6rem;
+            }
+
+            .service-header-text p {
+                font-size: 1rem;
+            }
+
+            .service-content {
+                font-size: 0.95rem;
+            }
+
+            .service-features {
+                grid-template-columns: 1fr;
+            }
+
+            .feature {
+                padding: 1.2rem;
+            }
+
+            .industry-section {
+                padding: 2rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .industry-icon {
+                width: 90px;
+                height: 90px;
+                border-radius: 18px;
+            }
+
+            .industry-icon img {
+                width: 55px !important;
+                height: 55px !important;
+            }
+
+            .industry-header-text h3 {
+                font-size: 1.6rem;
+            }
+
+            .industry-header-text p {
+                font-size: 1rem;
+            }
+
+            .industry-content > p {
+                font-size: 0.95rem;
+            }
+
+            .solution-item {
+                padding: 1.5rem;
+            }
+
+            .solution-item h5 {
+                font-size: 1.1rem;
+            }
+
+            .solution-item p {
+                font-size: 0.9rem;
+            }
+
+            .benefits-list {
+                padding: 1.5rem;
+            }
+
+            .benefits-list h5 {
+                font-size: 1.1rem;
+            }
+
+            .training-card {
+                padding: 2rem;
+            }
+
+            .training-card h4 {
+                font-size: 1.5rem;
+            }
+
+            .training-card p {
+                font-size: 0.95rem;
+            }
+
+            .training-icon {
+                width: 55px;
+                height: 55px;
+                border-radius: 12px;
+            }
+
+            .contact-box {
+                padding: 2rem 1.5rem;
+                border-radius: 20px;
+            }
+
+            .contact-box h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-box .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .cta-btn {
+                padding: 0.9rem 2.5rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+
+            .hero-service-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .hero-service-card dotlottie-wc {
+                width: 60px !important;
+                height: 60px !important;
+            }
+
+            .hero-service-card h3 {
+                font-size: 1.1rem;
+            }
+
+            .hero-service-card p {
+                font-size: 0.85rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .industry-section,
+            .service-section {
+                padding: 1.5rem 1rem;
+                border-radius: 15px;
+            }
+
+            .industry-icon {
+                width: 70px;
+                height: 70px;
+                border-radius: 15px;
+            }
+
+            .industry-icon img {
+                width: 40px !important;
+                height: 40px !important;
+            }
+
+            .industry-header-text h3 {
+                font-size: 1.3rem;
+            }
+
+            .service-header-text h3 {
+                font-size: 1.3rem;
+            }
+
+            .training-card {
+                padding: 1.5rem;
+            }
+
+            .training-card h4 {
+                font-size: 1.3rem;
+            }
+
+            .training-card li {
+                font-size: 0.9rem;
+            }
+
+            .contact-box h2 {
+                font-size: 1.5rem;
+            }
+
+            .contact-box .subtitle {
+                font-size: 1rem;
+            }
+
+            .cta-btn {
+                padding: 0.8rem 2rem;
+                font-size: 0.9rem;
+            }
+
+            footer {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="floating-bg"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="https://raw.githubusercontent.com/ahmedheshammec/the-secretsolutions/refs/heads/main/Assets/logo%20white.png" alt="Logo" class="nav-logo">
+                The Secret Solutions
+            </div>
+            <ul class="nav-links">
+                <li><a href="#main-services">خدماتنا الرئيسية</a></li>
+                <li><a href="#technical-support">الدعم الفني</a></li>
+                <li><a href="#training">التدريب</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+            </ul>
+            <div class="hamburger" onclick="this.classList.toggle('active'); document.querySelector('.nav-links').classList.toggle('mobile-open');">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>خدماتنا</h1>
+            <div class="subtitle">حلول Odoo متكاملة مصممة خصيصًا لقطاعك</div>
+
+            <div class="hero-services" id="main-services">
+                <div class="hero-service-card">
+                    <dotlottie-wc src="https://lottie.host/0e0016c1-2f0c-45ca-bae9-fd25aac2d815/djWRzBKawm.lottie" style="display: block; width: 80px; height: 80px; margin: 0 auto 15px auto; filter: brightness(0) invert(1);" autoplay loop></dotlottie-wc>
+                    <h3>قطاع الإنشاءات</h3>
+                    <p>إدارة متكاملة للمشاريع الإنشائية من التخطيط والتكاليف إلى التنفيذ والمتابعة، مع تتبع دقيق للموارد والمواد وجداول العمل.</p>
+                    
+                </div>
+
+                <div class="hero-service-card">
+                    <dotlottie-wc src="https://lottie.host/0dfbb5b1-3420-42f3-bacb-5d2c95f2981a/zcjAEDG7Cb.lottie" style="display: block; width: 100px; height: 100px; margin: 0 auto 5px auto; filter: brightness(0) invert(1);" autoplay loop></dotlottie-wc>
+                    <h3>التصنيع والمصانع</h3>
+                    <p>حلول شاملة لإدارة الإنتاج والمخزون والجودة، مع أتمتة خطوط الإنتاج وتتبع المواد الخام والمنتجات النهائية بكفاءة عالية.</p>
+                </div>
+
+                <div class="hero-service-card">
+                    <dotlottie-wc src="https://lottie.host/07af1948-a02e-4091-8083-72fce012e921/4YqW6eST5w.lottie" style="display: block; width: 80px; height: 80px; margin: 0 auto 5px auto; filter: brightness(0) invert(1);" autoplay loop></dotlottie-wc>
+                    <h3 style="margin-top: 5px;">قطاع التجزئة</h3>
+                    <p>نظام نقاط بيع متطور مع إدارة متكاملة للمخزون والمشتريات والعملاء، يدعم متاجر متعددة وقنوات بيع متنوعة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="industry-section construction-section">
+            
+            <div class="industry-header">
+                <div class="industry-icon">
+                    <img src="https://pub-6db8c8b0073045f5a7908cad1ed48553.r2.dev/construction.png" alt="قطاع الإنشاءات" style="width: 70px; height: 70px; filter: brightness(0) invert(1);">
+                </div>
+                <div class="industry-header-text">
+                    <h3>حلول قطاع الإنشاءات</h3>
+                    <p>نظام Odoo متخصص لإدارة المشاريع الإنشائية بكامل تعقيداتها وتحدياتها</p>
+                </div>
+                <video class="construction-video lazy-video" muted playsinline preload="none">
+                    <source src="https://pub-6db8c8b0073045f5a7908cad1ed48553.r2.dev/construction.webm" type="video/webm">
+                </video>
+            </div>
+
+            <div class="industry-content">
+                <p>يواجه قطاع الإنشاءات تحديات عديدة في إدارة المشاريع المعقدة والموارد المتعددة والعاملين المنتشرين على عدة مواقع. نحن نوفر حلاً شاملاً مع نظام Odoo يدمج جميع جوانب عملياتك من الفرز والتخطيط وحتى التنفيذ والمتابعة.</p>
+
+                <div class="solutions-grid">
+                    <div class="solution-item">
+                        <h5>إدارة المشاريع الموحدة</h5>
+                        <p>تخطيط شامل للمشاريع مع تحديد المراحل والمهام والموارد المطلوبة لكل مرحلة.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h5>تتبع التكاليف في الوقت الفعلي</h5>
+                        <p>مراقبة دقيقة للنفقات والموازنات ومقارنتها بالمخطط للتحكم الكامل بالتكاليف.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h5>إدارة المواد والمخزون</h5>
+                        <p>تتبع المواد الخام والمستلزمات والمعدات مع ضمان توفر ما تحتاجه في الوقت المناسب.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h5>جداول العمل والجدولة</h5>
+                        <p>تنظيم دقيق لسير العمل والمواعيد النهائية مع إدارة فعالة للموارد البشرية.</p>
+                    </div>
+                </div>
+
+                <div class="benefits-list">
+                    <h5>الفوائد الرئيسية</h5>
+                    <ul>
+                        <li>تقليل التأخيرات وتجاوزات الميزانية</li>
+                        <li>زيادة كفاءة استخدام الموارد</li>
+                        <li>تحسين التواصل بين الفرق والعاملين</li>
+                        <li>تقارير دقيقة وفورية عن حالة المشاريع</li>
+                        <li>إدارة أفضل للعاملين والراتب</li>
+                        <li>تقليل الأخطاء والنزاعات</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="industry-section manufacturing-section">
+            <div class="industry-header">
+                <div class="industry-icon">
+                    <img src="https://pub-6db8c8b0073045f5a7908cad1ed48553.r2.dev/factory.png" alt="التصنيع والمصانع" style="width: 70px; height: 70px; filter: brightness(0) invert(1);">
+                </div>
+                <div class="industry-header-text">
+                    <h3>حلول التصنيع والمصانع</h3>
+                    <p>منصة متكاملة لإدارة عمليات الإنتاج والجودة والمخزون بكفاءة عالية</p>
+                </div>
+                <video class="manufacturing-video lazy-video" muted playsinline preload="none">
+                    <source src="https://pub-6db8c8b0073045f5a7908cad1ed48553.r2.dev/manufacturing.webm" type="video/webm">
+                </video>
+            </div>
+
+            <div class="industry-content">
+                <p>في قطاع التصنيع، الكفاءة والجودة والسرعة هي مفاتيح النجاح. نحن نوفر نظام Odoo مصمم خصيصاً للمصانع والشركات الإنتاجية، يغطي جميع جوانب العملية من إدارة المشتريات والمواد الخام وحتى خطوط الإنتاج والمخزون والتوزيع.</p>
+
+                <div class="solutions-grid">
+                    <div class="solution-item">
+                        <h5>تخطيط الإنتاج</h5>
+                        <p>جدولة إنتاجية ذكية تعتمد على الطلب والموارد المتاحة لتحسين الكفاءة والإنتاجية.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h5>إدارة المواد الخام</h5>
+                        <p>تتبع شامل للمواد الخام من الاستلام وحتى الاستهلاك في الإنتاج مع ضمان جودتها.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h5>ضبط الجودة</h5>
+                        <p>أنظمة فحص وقياس دقيقة لضمان جودة المنتجات والالتزام بالمعايير الدولية.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h5>إدارة المخزون الديناميكية</h5>
+                        <p>تحكم ذكي بمستويات المخزون للمواد الخام والمنتجات النهائية لتجنب النقص أو الفائض.</p>
+                    </div>
+                </div>
+
+                <div class="benefits-list">
+                    <h5>الفوائد الرئيسية</h5>
+                    <ul>
+                        <li>زيادة الإنتاجية والإنتاج</li>
+                        <li>تحسين جودة المنتجات</li>
+                        <li>تقليل هدر المواد والطاقة</li>
+                        <li>تحسين دقة التنبؤ بالطلب</li>
+                        <li>تقليل تكاليف التخزين</li>
+                        <li>تسريع دورة الإنتاج</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="industry-section retail-section">
+            <div class="industry-header">
+                <div class="industry-icon">
+                    <img src="https://pub-6db8c8b0073045f5a7908cad1ed48553.r2.dev/retail.png" alt="قطاع التجزئة" style="width: 70px; height: 70px; filter: brightness(0) invert(1);">
+                </div>
+                <div class="industry-header-text">
+                    <h3>حلول قطاع التجزئة</h3>
+                    <p>نظام بيع وإدارة متكامل للمتاجر والعلامات التجارية الحديثة</p>
+                </div>
+                <video class="retail-video lazy-video" muted playsinline preload="none">
+                    <source src="https://pub-6db8c8b0073045f5a7908cad1ed48553.r2.dev/retail.webm" type="video/webm">
+                </video>
+            </div>
+
+            <div class="industry-content">
+                <p>في عالم التجزئة الحديث، يجب أن تكون جاهزاً للتنافس في أسواق متعددة وقنوات بيع متنوعة. نحن نقدم حلاً شاملاً مع نظام Odoo يدمج نقاط البيع والمخزون والعملاء والمبيعات، مما يوفر لك رؤية كاملة عن عملك في الوقت الفعلي.</p>
+
+                <div class="solutions-grid">
+                    <div class="solution-item">
+                        <h5>نظام نقاط البيع الحديث</h5>
+                        <p>نقاط بيع سهلة الاستخدام مع دعم طرق دفع متعددة وعمليات سريعة وآمنة.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h5>إدارة المخزون المركزية</h5>
+                        <p>إدارة موحدة لمخزونك عبر عدة متاجر مع تتبع دقيق وتنبيهات الخزون المنخفض.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h5>إدارة العملاء والولاء</h5>
+                        <p>بناء علاقات قوية مع عملائك من خلال برامج الولاء والعروض والخصومات المخصصة.</p>
+                    </div>
+                    <div class="solution-item">
+                        <h5>التقارير والتحليلات</h5>
+                        <p>تقارير تفصيلية عن المبيعات والأرباح والمنتجات الأكثر طلباً لاتخاذ قرارات أفضل.</p>
+                    </div>
+                </div>
+
+                <div class="benefits-list">
+                    <h5>الفوائد الرئيسية</h5>
+                    <ul>
+                        <li>تحسين تجربة العملاء والخدمة</li>
+                        <li>زيادة المبيعات والأرباح</li>
+                        <li>إدارة أفضل للمخزون وتقليل التكاليف</li>
+                        <li>رؤية شاملة عن الأداء والاتجاهات</li>
+                        <li>دعم متاجر متعددة وقنوات بيع</li>
+                        <li>أتمتة العمليات اليومية</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="technical-support">
+        <div class="service-section">
+            <div class="service-header">
+                <div class="service-icon">
+                    <span class="lottie-scroll" data-src="https://lottie.host/567fcfbb-3ebc-4719-9e2d-a6b0ed307b8e/KDEm1RJa3V.lottie" data-width="60px" data-height="60px"></span>
+                </div>
+                <div class="service-header-text">
+                    <h3>الدعم الفني المتخصص</h3>
+                    <p>نساندك في كل خطوة من رحلتك مع Odoo</p>
+                </div>
+            </div>
+
+            <div class="service-content">
+                <p>هل تواجه تحديات مع تطبيقك الحالي لنظام Odoo؟ أم تحتاج إلى تطوير ميزات جديدة تلبي احتياجاتك الخاصة؟ نحن هنا لمساعدتك. فريقنا من الخبراء المتخصصين في Odoo جاهز لتقديم الدعم الفني الشامل والحلول المخصصة كعمل حر احترافي.</p>
+            </div>
+
+            <div class="service-features">
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>حل المشاكل التقنية وإصلاح الأخطاء في النظام الحالي</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>تطوير ميزات ووحدات مخصصة حسب احتياجاتك</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>تحسين أداء النظام وسرعة الاستجابة</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>دمج Odoo مع الأنظمة والتطبيقات الخارجية</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>تخصيص التقارير والقوائم المالية</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>استشارات فنية وإرشادات حول أفضل الممارسات</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>ترحيل البيانات وتحديث الإصدارات</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>أتمتة سير العمل والعمليات التجارية</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="training">
+        <h2 class="section-title">التدريب والتأهيل</h2>
+        <p class="section-subtitle">استثمر في فريقك لتحقيق أقصى استفادة من نظام Odoo</p>
+
+        <div class="service-section">
+            <div class="service-content">
+                <p>هل لديك نظام Odoo بالفعل لكن فريقك أو موظفيك لا يزالون غير ملمين بطريقة عمل النظام؟ نحن نقدم برامج تدريبية شاملة ومخصصة تساعد فريقك على فهم آلية عمل Odoo، وإتقان دورة العمل التجارية، وتحقيق أقصى استفادة من إمكانيات النظام. تدريباتنا مصممة لتناسب مستوى خبرة المتدربين واحتياجات شركتك.</p>
+            </div>
+
+            <div class="training-types">
+                <div class="training-card">
+                    <div class="training-icon">
+                        <img src="https://pub-6db8c8b0073045f5a7908cad1ed48553.r2.dev/online.png" alt="التدريب عن بُعد" style="width: 35px; height: 35px; filter: brightness(0) invert(1);">
+                    </div>
+                    <h4>التدريب عن بُعد</h4>
+                    <p>برامج تدريبية تفاعلية عبر الإنترنت توفر لك المرونة والراحة دون الحاجة للتنقل.</p>
+                    <ul>
+                        <li>جلسات مباشرة عبر Zoom أو Google Meet</li>
+                        <li>تدريب مرن يناسب أوقات عملك</li>
+                        <li>تسجيلات للجلسات للمراجعة لاحقًا</li>
+                        <li>مواد تدريبية رقمية شاملة</li>
+                        <li>دعم فني بعد التدريب</li>
+                    </ul>
+                </div>
+
+                <div class="training-card">
+                    <div class="training-icon">
+                        <img src="https://pub-6db8c8b0073045f5a7908cad1ed48553.r2.dev/site.png" alt="التدريب في الموقع" style="width: 35px; height: 35px; filter: brightness(0) invert(1);">
+                    </div>
+                    <h4>التدريب في الموقع</h4>
+                    <p>خبراؤنا يأتون إلى مقر شركتك لتوفير تدريب شخصي ومباشر لفريقك.</p>
+                    <ul>
+                        <li>تدريب مباشر في مقر شركتك</li>
+                        <li>تجربة عملية على نظامك الخاص</li>
+                        <li>تدريب مخصص حسب عملياتك التجارية</li>
+                        <li>ورش عمل تفاعلية وتطبيقية</li>
+                        <li>متابعة ودعم مستمر بعد التدريب</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-features" style="margin-top: 3rem;">
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>تدريب على جميع وحدات Odoo (المبيعات، المشتريات، المخزون، المحاسبة، وغيرها)</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>فهم دورة العمل التجارية الكاملة في Odoo</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>إدارة المستخدمين والصلاحيات</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>إنشاء التقارير وتحليل البيانات</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>أفضل الممارسات والنصائح العملية</span>
+                </div>
+                <div class="feature">
+                    <div class="checkmark">✓</div>
+                    <span>شهادات تدريب معتمدة</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact-box">
+            <h2>مستعد لتطوير أعمالك؟</h2>
+            <p class="subtitle">دعنا نساعدك في تحقيق أهدافك مع Odoo</p>
+            <a href="mailto:info@thesecretsolutions.com" class="cta-btn">تواصل معنا الآن</a>
+        </div>
+    </section>
+
+    <footer>
+        <p style="direction: ltr; unicode-bidi: embed;">&copy;The Secret Solutions. 2026 جميع الحقوق محفوظة</p>
+    </footer>
+
+    <script>
+        const lottieObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const placeholder = entry.target;
+                    const stopFrame = parseInt(placeholder.dataset.stopFrame) || null;
+                    const speed = parseFloat(placeholder.dataset.speed) || 0.5;
+                    const lottie = document.createElement('dotlottie-wc');
+                    lottie.setAttribute('src', placeholder.dataset.src);
+                    lottie.setAttribute('autoplay', '');
+                    lottie.setAttribute('loop', '');
+                    lottie.style.width = placeholder.dataset.width;
+                    lottie.style.height = placeholder.dataset.height;
+                    lottie.style.flexShrink = '0';
+                    placeholder.replaceWith(lottie);
+                    if (stopFrame) {
+                        const check = setInterval(() => {
+                            if (lottie.dotLottie) {
+                                clearInterval(check);
+                                lottie.dotLottie.setSpeed(speed);
+                                lottie.dotLottie.addEventListener('frame', ({currentFrame}) => {
+                                    if (currentFrame >= stopFrame) {
+                                        lottie.dotLottie.pause();
+                                    }
+                                });
+                            }
+                        }, 50);
+                    }
+                    lottieObserver.unobserve(placeholder);
+                }
+            });
+        }, { threshold: 0 });
+
+        document.querySelectorAll('.lottie-scroll').forEach(el => {
+            lottieObserver.observe(el);
+        });
+
+        const videoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const video = entry.target;
+                    video.play();
+                    videoObserver.unobserve(video);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.lazy-video').forEach(video => {
+            videoObserver.observe(video);
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+                // Close mobile menu if open
+                document.querySelector('.nav-links').classList.remove('mobile-open');
+                document.querySelector('.hamburger').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

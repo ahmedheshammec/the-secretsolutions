@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Secret Solutions - أعمالك، مدعومة بقوة Odoo</title>
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js" type="module"></script>
     <style>
         * {
             margin: 0;
@@ -108,18 +109,33 @@
             margin-top: 70px;
             position: relative;
             overflow: hidden;
+            width: 100vw;
+            max-width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            margin-right: calc(-50vw + 50%);
         }
 
         .hero-video {
             position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            transform: translate(-50%, -50%);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             object-fit: cover;
             opacity: 0.15;
             z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, #0a0e27 0%, rgba(10, 14, 39, 0.8) 40%, transparent 100%);
+            z-index: 1;
             pointer-events: none;
         }
 
@@ -130,7 +146,7 @@
         .hero-content {
             max-width: 900px;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         .hero h1 {
@@ -198,7 +214,7 @@
 
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             margin-top: 3rem;
         }
@@ -230,6 +246,7 @@
             justify-content: center;
             margin: 0 auto 1.5rem;
             font-size: 2rem;
+            overflow: visible;
         }
 
         .card h3 {
@@ -382,7 +399,17 @@
             border-top: 1px solid rgba(43, 173, 225, 0.1);
         }
 
+        @media (max-width: 992px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
             .nav-links {
                 display: none;
             }
@@ -432,7 +459,7 @@
 
     <section class="hero">
         <video class="hero-video" autoplay muted loop playsinline preload="none" loading="lazy">
-            <source src="Assets/hero-bg.webm" type="video/webm">
+            <source src="https://pub-6db8c8b0073045f5a7908cad1ed48553.r2.dev/hero-bg.webm" type="video/webm">
         </video>
         <div class="hero-content">
             <img src="https://raw.githubusercontent.com/ahmedheshammec/the-secretsolutions/refs/heads/main/Assets/Logo-Circle.png" class="hero-section-logo"/>
@@ -448,22 +475,22 @@
         <p class="section-subtitle">حلول Odoo شاملة مصممة خصيصًا لأعمالك</p>
         <div class="grid">
             <div class="card">
-                <div class="card-icon">📦</div>
+                <div class="card-icon"><span class="lottie-scroll" data-src="https://lottie.host/9a2fa3a3-ab4e-4178-992e-dec51852f4db/OYIg5F1qck.lottie" data-width="60px" data-height="60px" data-stop-frame="70" data-speed="2.3"></span></div>
                 <h3>تطبيق نظام Odoo</h3>
                 <p>إعداد كامل لنظام Odoo ERP يشمل تحليل العمليات التجارية وتهيئة الوحدات والنشر السلس.</p>
             </div>
             <div class="card">
-                <div class="card-icon">⚙️</div>
+                <div class="card-icon"><span class="lottie-scroll" data-src="https://lottie.host/19e7bfdc-c1ad-4071-8093-7fa693c7f968/mYyQhLkreh.lottie" data-width="50px" data-height="50px" data-stop-frame="20"></span></div>
                 <h3>التطوير المخصص</h3>
                 <p>وحدات Odoo مخصصة وأتمتة سير العمل وتكامل مع الأنظمة الخارجية مصممة حسب احتياجاتك.</p>
             </div>
             <div class="card">
-                <div class="card-icon">🛠️</div>
+                <div class="card-icon"><span class="lottie-scroll" data-src="https://lottie.host/567fcfbb-3ebc-4719-9e2d-a6b0ed307b8e/KDEm1RJa3V.lottie" data-width="50px" data-height="50px" data-stop-frame="20"></span></div>
                 <h3>الدعم والصيانة</h3>
                 <p>دعم فني مستمر وتحسين أداء النظام وضبط الأداء لضمان التشغيل الأمثل.</p>
             </div>
             <div class="card">
-                <div class="card-icon">💡</div>
+                <div class="card-icon"><span class="lottie-scroll" data-src="https://lottie.host/8525d3d0-aaf0-4190-8562-836b8fb49bef/a7KpYtSmcU.lottie" data-width="90px" data-height="90px" data-stop-frame="70"></span></div>
                 <h3>الاستشارات</h3>
                 <p>استراتيجية تخطيط موارد المؤسسات وتوجيه التحول الرقمي وإعادة هندسة العمليات لتحقيق أفضل أداء.</p>
             </div>
@@ -580,10 +607,45 @@
     </section>
 
     <footer>
-        <p style="direction: ltr;">&copy; 2024 The Secret Solutions. جميع الحقوق محفوظة.</p>
+        <p style="direction: ltr; unicode-bidi: embed;">&copy;The Secret Solutions. 2026 جميع الحقوق محفوظة</p>
     </footer>
 
     <script>
+        const lottieObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const placeholder = entry.target;
+                    const stopFrame = parseInt(placeholder.dataset.stopFrame) || null;
+                    const speed = parseFloat(placeholder.dataset.speed) || 0.5;
+                    const lottie = document.createElement('dotlottie-wc');
+                    lottie.setAttribute('src', placeholder.dataset.src);
+                    lottie.setAttribute('autoplay', '');
+                    lottie.style.width = placeholder.dataset.width;
+                    lottie.style.height = placeholder.dataset.height;
+                    lottie.style.flexShrink = '0';
+                    placeholder.replaceWith(lottie);
+                    if (stopFrame) {
+                        const check = setInterval(() => {
+                            if (lottie.dotLottie) {
+                                clearInterval(check);
+                                lottie.dotLottie.setSpeed(speed);
+                                lottie.dotLottie.addEventListener('frame', ({currentFrame}) => {
+                                    if (currentFrame >= stopFrame) {
+                                        lottie.dotLottie.pause();
+                                    }
+                                });
+                            }
+                        }, 50);
+                    }
+                    lottieObserver.unobserve(placeholder);
+                }
+            });
+        }, { threshold: 0 });
+
+        document.querySelectorAll('.lottie-scroll').forEach(el => {
+            lottieObserver.observe(el);
+        });
+
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
